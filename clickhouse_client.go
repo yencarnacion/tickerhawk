@@ -86,10 +86,6 @@ func (cfg ClickHouseConfig) options(database string) *clickhouse.Options {
 			Method: clickhouse.CompressionLZ4,
 		},
 		Settings: clickhouse.Settings{},
-		// these are used by the native conn; SQL DB has its own pool, but it’s fine.
-		MaxOpenConns:    8,
-		MaxIdleConns:    8,
-		ConnMaxLifetime: 30 * time.Minute,
 	}
 	if cfg.Secure {
 		opt.TLS = &tls.Config{}
