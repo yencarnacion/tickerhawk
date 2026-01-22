@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS tape_trades_1m
   at_bid UInt64,
   below_bid UInt64
 )
-ENGINE = SummingMergeTree(trades_total, above_ask, at_ask, mid_to_ask, at_mid, mid_to_bid, at_bid, below_bid)
+ENGINE = SummingMergeTree
 PARTITION BY day
 ORDER BY (run_id, symbol, minute, session)
 `
